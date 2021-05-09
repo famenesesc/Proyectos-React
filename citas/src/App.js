@@ -1,8 +1,17 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import Formulario from './components/Formulario';
 
 
 function App() {
+  //Se manejaran multiples citas, por eso un arreglo el cual inicia vacío
+  const [ citas, guardarCitas ] = useState([]);
+
+  //Función que tome las citas actuales y agrege la nueva
+  const crearCita = (cita) => {
+    guardarCitas([ ...citas, cita]);
+  }
+  
+
   return (
     <Fragment>
       <h1>Administrador de pacientes</h1>
@@ -11,10 +20,15 @@ function App() {
       <div className="container">
         <div className="row">
           <div className="one-half column">
-            {/* Este es mi componente Formulario */}
-            <Formulario />
+            {/* Este es mi componente Formulario para crear cada cita */}
+            <Formulario
+              crearCita={crearCita}
+            />
           </div>
-          <div className="one-half column">Segundo Div</div>
+          <div className="one-half column">
+            {/* Este es mi componente cita, donde van las citas que he creado */}
+            
+          </div>
         </div>
       </div>
     </Fragment>
