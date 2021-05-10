@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import Formulario from './components/Formulario';
-
+import Cita from './components/Cita';
 
 function App() {
   //Se manejaran multiples citas, por eso un arreglo el cual inicia vacío
@@ -11,6 +11,12 @@ function App() {
     guardarCitas([ ...citas, cita]);
   }
   
+  //Se crea esta función aqui, porque es donde están todas las citas, 
+  //por lo tanto es mas facil elminarlo desde aqui
+  const eliminarCita = (id) => {
+    const nuevasCitas = citas.filter( cita => cita.id !== id );
+    guardarCitas(nuevasCitas)
+  }  
 
   return (
     <Fragment>
@@ -27,7 +33,14 @@ function App() {
           </div>
           <div className="one-half column">
             {/* Este es mi componente cita, donde van las citas que he creado */}
-            
+            <h2>Administra tus citas</h2>
+            { citas.map(cita => (
+              <Cita
+                key={cita.id}
+                cita={cita}
+                eliminarCita={eliminarCita}
+              />
+            )) }
           </div>
         </div>
       </div>
