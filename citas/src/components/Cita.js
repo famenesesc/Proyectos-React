@@ -12,6 +12,7 @@ const Cita = ({ cita, eliminarCita }) => (
                 className="button eliminar u-full-width"
                 //Si se pone solo eliminarCita(), lo que hace es llamar la funcion
                 //Se pone como arrow para que espere a que suceda el onclick
+                //Se declara la funcion en App porque allá está lo que se desea eliminar
                 onClick={ () => eliminarCita(cita.id) }
             >Eliminar &times;</button>
         </div>

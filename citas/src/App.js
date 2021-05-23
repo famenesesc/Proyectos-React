@@ -1,22 +1,42 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import Formulario from './components/Formulario';
 import Cita from './components/Cita';
 
 function App() {
+
+  //Citas en localStorage, si no hay nada lo inicializa como un arreglo vacío
+  //Como local solo maneja strings, se debe convertir el arreglo en un string tipo JSON
+  let citasIniciales = JSON.parse(localStorage.getItem('citas'));
+  if ( !citasIniciales ) {
+    citasIniciales = [];
+  }
+
+//**************DECLARACION DE STATES******************* */
   //Se manejaran multiples citas, por eso un arreglo el cual inicia vacío
   const [ citas, guardarCitas ] = useState([]);
 
+  //Se usa para hacer algo cuando se termina de renderizar la pagina o en este caso 
+  //cada vez que cambie el state de Citas. Al actualizar o eliminar el state de citas
+  //Ese segundo parametro que será citas se conoce como dependencias
+  useEffect(() => {
+    console.log('Documento listo o algo pasó con las citas');
+  },[citas])
+
+//***********************METODOS*********************** */
+  //Se crea esta función aqui, porque es donde están todas las citas, 
+  //por lo tanto es mas facil elminarlo desde aqui
   //Función que tome las citas actuales y agrege la nueva
   const crearCita = (cita) => {
     guardarCitas([ ...citas, cita]);
   }
-  
-  //Se crea esta función aqui, porque es donde están todas las citas, 
-  //por lo tanto es mas facil elminarlo desde aqui
+
   const eliminarCita = (id) => {
     const nuevasCitas = citas.filter( cita => cita.id !== id );
     guardarCitas(nuevasCitas)
-  }  
+  } 
+
+  //Mensaje condicional
+  const titulo = citas.length === 0 ? 'No hay citas' : 'Administra tu citas';
 
   return (
     <Fragment>
@@ -26,14 +46,17 @@ function App() {
       <div className="container">
         <div className="row">
           <div className="one-half column">
+            
             {/* Este es mi componente Formulario para crear cada cita */}
             <Formulario
               crearCita={crearCita}
             />
+
           </div>
           <div className="one-half column">
+            
             {/* Este es mi componente cita, donde van las citas que he creado */}
-            <h2>Administra tus citas</h2>
+            <h2>{ titulo }</h2>
             { citas.map(cita => (
               <Cita
                 key={cita.id}
@@ -41,6 +64,7 @@ function App() {
                 eliminarCita={eliminarCita}
               />
             )) }
+            
           </div>
         </div>
       </div>

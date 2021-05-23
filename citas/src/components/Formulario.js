@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 //import uuid from 'uuid';
 const {v4 : uuidv4} = require('uuid')
 
-const Formulario = ({crearCita}) => {
+const Formulario = ({ crearCita }) => {
 
     //State para el manejo de citas, así inicia el proyecto. Ligado a cada uno de los campos del formulario
     const [ cita, actualizarCita ] = useState({
@@ -17,7 +17,7 @@ const Formulario = ({crearCita}) => {
     const [ error, actualizarError ] = useState(false)
 
     //Funcion que se ejecuta cuando el usuario escribe en un input
-    //Si es un solo parametro no necesita los paraentesis
+    //Si es un solo parametro no necesita los parentesis
     const actualizarState = evento => {
         //Aqui se debe modificar la cita, que es la "cosa" que se declara en la linea 6
         //console.log(evento.target.name)
