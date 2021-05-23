@@ -6,21 +6,27 @@ function App() {
 
   //Citas en localStorage, si no hay nada lo inicializa como un arreglo vacío
   //Como local solo maneja strings, se debe convertir el arreglo en un string tipo JSON
-  let citasIniciales = JSON.parse(localStorage.getItem('citas'));
+  let citasIniciales = JSON.parse(localStorage.getItem('citas'));//Parse convierte una cadena tipo JSON en un objeto JS
   if ( !citasIniciales ) {
-    citasIniciales = [];
+    citasIniciales = [];//Si no hay nada en localStorage le pasa un arreglo vacío que es el inicio del State de citas
   }
 
 //**************DECLARACION DE STATES******************* */
-  //Se manejaran multiples citas, por eso un arreglo el cual inicia vacío
-  const [ citas, guardarCitas ] = useState([]);
+  //Se manejaran multiples citas, por eso el state inicia como un arreglo vacío o lo que esté en localStorage
+  const [ citas, guardarCitas ] = useState(citasIniciales);
 
   //Se usa para hacer algo cuando se termina de renderizar la pagina o en este caso 
   //cada vez que cambie el state de Citas. Al actualizar o eliminar el state de citas
   //Ese segundo parametro que será citas se conoce como dependencias
   useEffect(() => {
-    console.log('Documento listo o algo pasó con las citas');
-  },[citas])
+    //let citasIniciales = JSON.parse(localStorage.getItem('citas'));//Parse convierte una cadena tipo JSON en un objeto JS
+
+    if ( citasIniciales ) {
+      localStorage.setItem('citas', JSON.stringify(citas))//Stringify convierte un objeto en una cadena tipo JSON
+    } else {
+      localStorage.setItem('citas', JSON.stringify([]))
+    }
+  },[citas,citasIniciales])//Se pasa porque es una dependencia para que no lance warning, o tambien se puede declarar el en scope de useEffect(Ln 22)
 
 //***********************METODOS*********************** */
   //Se crea esta función aqui, porque es donde están todas las citas, 

@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import PropTypes from 'prop-types';
 //import uuid from 'uuid';
 const {v4 : uuidv4} = require('uuid')
 
@@ -122,5 +123,9 @@ const Formulario = ({ crearCita }) => {
         </Fragment>
      );
 }
- 
+//PropTypes sirve para obligar a usar bien los componentes o para hacer documentación
+Formulario.propTypes = {
+    crearCita: PropTypes.func.isRequired
+}
+
 export default Formulario;
