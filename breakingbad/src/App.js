@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 const Contenedor = styled.div`
   display: flex;
   align-items: center;
-  padding-top: 5rem;
+  padding-top: 12rem;
   flex-direction: column;
 `;
 
@@ -14,9 +14,9 @@ const Boton = styled.button`
   background-size: 300px;
   font-family: Arial, Helvetica, sans-serif;
   color: #fff;
-  margin-top: 3rem;
-  padding: 1rem 3rem;
-  font-size: 2rem;
+  margin-top: 1rem;
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
   border: 2px solid black;
   transition: background-size .8s ease;
 

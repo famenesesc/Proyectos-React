@@ -2,22 +2,23 @@ import React from 'react'
 import styled from '@emotion/styled';
 
 const ContenedorFrase = styled.div`
-  padding: 3rem;
+    padding: 2rem;
     border-radius: .5rem;
     background-color: #fff;
-    max-width:800px;
+    max-width: 800px;
     
     @media (min-width: 992px) {
-        margin-top: 10rem;
+        margin-top: 3rem;
     }
     h1 {
         font-family: Arial, Helvetica, sans-serif;
         text-align: center;
         position: relative;
         padding-left: 4rem;
+        font-size: 1rem;
         &::before {
             content: open-quote;
-            font-size: 10rem;
+            font-size: 6rem;
             color: black;
             position: absolute;
             left: -1rem;
@@ -26,8 +27,8 @@ const ContenedorFrase = styled.div`
     }
     p {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: 1.4rem;
-        font-weight:bold;
+        font-size: 1rem;
+        font-weight:italic;
         text-align: right;
         color: #666;
         margin-top: 2rem;
