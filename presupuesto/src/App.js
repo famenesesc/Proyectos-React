@@ -26,9 +26,8 @@ function App() {
     <div className="container">
       
       <header>
-        
         <h1>Gasto Semanal</h1>
-        
+      </header>
         <div className="contenido-principal cotenido">
           {
             mostrarPregunta ? 
@@ -62,7 +61,7 @@ function App() {
          
         </div>
 
-      </header>
+      
 
     </div>
   );
