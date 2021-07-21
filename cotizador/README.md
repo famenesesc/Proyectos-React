@@ -1,5 +1,6 @@
 # Cotizador de seguros
 
-## Styled components
-## Emotion CSS
-  ### Spinner
+### Herramientas
+Styled components\
+Emotion CSS\
+SpinKit

@@ -1,5 +1,6 @@
 # Administrador de citas para mascotas
 
-### useState
-### useEffect
-### localStorage
+### Hooks y herramientas
+useState\
+useEffect\
+localStorage
