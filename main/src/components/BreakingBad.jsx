@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import { Frase } from '../helpers/Frase';
 import styled from 'styled-components';
+import './BreakingBad.css'
 
 const Contenedor = styled.div`
   display: flex;

@@ -1,11 +1,13 @@
-import BreakingBad from './components/BreakingBad'
+import BreakingBad from './components/BreakingBad';
+import Presupuesto from './components/Presupuesto';
+
 
 function App() {
 
   return (
     <>
-      <p>Component 2 </p>
-      <BreakingBad />
+      
+      <Presupuesto />
     </>
   )
 }
