@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
-import { Frase } from './components/Frase';
-import styled from '@emotion/styled';
+import { Frase } from '../helpers/Frase';
+import styled from 'styled-components';
 
 const Contenedor = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ const Contenedor = styled.div`
 `;
 
 const Boton = styled.button`
-  background: -webkit-linear-gradient(top left, #007d35 0%, #007d35 40%, #0f574e 100%);
+  background: -webkit-linear-gradient(top left, green 0%, #007d35 40%, #0f574e 100%);
   background-size: 300px;
   font-family: Arial, Helvetica, sans-serif;
   color: #fff;
@@ -20,13 +20,14 @@ const Boton = styled.button`
   border: 2px solid black;
   transition: background-size .8s ease;
 
-  :hover{
+  &:hover {
     cursor: pointer;
-    background-size: 400px;
+    background-size: 800px;
+    border-color: white;
   }
 `;
 
-function App() {
+function BreakingBad() {
 
   //State de frases
   const [frase, setFrase] = useState({});
@@ -38,7 +39,7 @@ function App() {
   } 
 */
   const consultarAPI = async () => {
-    const api = await fetch('https://breaking-bad-quotes.herokuapp.com/v1/quotes');
+    const api = await fetch('https://api.breakingbadquotes.xyz/v1/quotes');
     const frase = await api.json();
     //console.log( frase[0] )
     setFrase( frase[0] );
@@ -60,4 +61,4 @@ function App() {
   );
 }
 
-export default App;
+export default BreakingBad;
