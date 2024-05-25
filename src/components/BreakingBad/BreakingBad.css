@@ -1,0 +1,13 @@
+
+.container-bb {
+    background-image: url(./assets/logo.png), -webkit-linear-gradient(top left, #007d35 0%, #007d35 40%, #0f574e 100%);
+    background-repeat: no-repeat;
+    background-position: 0%;
+    padding: 5rem;
+  }
+
+@media (max-width: 800px) {
+  .container-bb {
+    background-image:  -webkit-linear-gradient(top left, #007d35 0%, #007d35 40%, #0f574e 100%);
+  }
+}
